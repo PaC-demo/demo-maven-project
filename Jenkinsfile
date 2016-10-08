@@ -9,9 +9,9 @@ node {
 
     stage 'Test'
     parallel 'test': {
-        sh "testing..."
+        sh "echo testing..."
     }, 'verify': {
-        sh "verifying..."
+        sh "echo verifying..."
     }
 
     stage 'archive'
