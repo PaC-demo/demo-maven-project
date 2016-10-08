@@ -2,7 +2,7 @@ node {
     stage 'Checkout'
     checkout scm
 
-    def mvnHome = Tool "mvn3"
+    def mvnHome = tool "mvn3"
 
     stage 'Build'
     sh "${mvnHome}/bin/mvn clean package"
