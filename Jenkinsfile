@@ -3,7 +3,7 @@ node('docker-j1.7mvn3') {
     checkout scm
 
     stage 'Build'
-    sh "mvn clean package"
+    sh "mvn clean package -DskipTests"
 
     stage 'Test'
     parallel 'test': {
