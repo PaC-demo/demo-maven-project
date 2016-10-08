@@ -1,4 +1,4 @@
-node {
+node('docker-j1.8.0') {
     stage 'Checkout'
     checkout scm
 
