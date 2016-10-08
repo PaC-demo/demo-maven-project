@@ -1,18 +1,25 @@
 node {
-    stage 'checkout'
-    git url: 'https://github.com/kesselborn/jenkinsfile'
+    stage 'Checkout'
+    checkout scm
 
-//    stage 'build'
-//    def mvnHome = Tool 'mvn3'
-//    sh "${mvnHome}/bin/mvn package"
-//
-//    stage 'test'
-//    parallel 'test': {
-//        sh "${mvnHome}/bin/mvn test;"
-//    }, 'verify': {
-//        sh "${mvnHome}/bin/mvn verify"
-//    }
-//
-//    stage archive
-//    archive 'target/**/*.jar'
+    def mvnHome = Tool "mvn3"
+
+    stage 'Build'
+    sh "${mvnHome}/bin/mvn clean package"
+
+    stage 'Test'
+    parallel 'test': {
+        sh "${mvnHome}/bin/mvn test"
+    }, 'verify': {
+        sh "${mvnHome}/bin/mvn verify"
+    }
+
+    stage 'archive'
+    archive 'target/*.jar'
+}
+
+
+node {
+    stage 'Deploy'
+    sh 'Not yet written!'
 }
