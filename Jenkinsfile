@@ -9,9 +9,9 @@ node {
 
     stage 'Test'
     parallel 'test': {
-        sh "echo testing..."
+        sh "echo 'testing...'"
     }, 'verify': {
-        sh "echo verifying..."
+        sh "echo 'verifying...'"
     }
 
     stage 'archive'
@@ -21,5 +21,5 @@ node {
 
 node {
     stage 'Deploy'
-    sh 'Not yet written!'
+    sh 'echo "Not yet written!"'
 }
