@@ -9,9 +9,9 @@ node {
 
     stage 'Test'
     parallel 'test': {
-        sh "${mvnHome}/bin/mvn test"
+        sh "testing..."
     }, 'verify': {
-        sh "${mvnHome}/bin/mvn test"
+        sh "verifying..."
     }
 
     stage 'archive'
