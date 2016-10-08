@@ -1,4 +1,4 @@
-node('docker-1.7mvn3') {
+node('docker-j1.7mvn3') {
     stage 'Checkout'
     checkout scm
 
