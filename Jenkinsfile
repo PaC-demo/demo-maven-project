@@ -1,11 +1,9 @@
-node('docker-j1.8.0') {
+node('docker-1.7mvn3') {
     stage 'Checkout'
     checkout scm
 
-    def mvnHome = tool "mvn3"
-
     stage 'Build'
-    sh "${mvnHome}/bin/mvn clean package"
+    sh "mvn clean package"
 
     stage 'Test'
     parallel 'test': {
@@ -21,5 +19,5 @@ node('docker-j1.8.0') {
 
 node {
     stage 'Deploy'
-    sh 'echo "Not yet written!"'
+    sh 'echo Deploying..'
 }
