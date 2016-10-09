@@ -22,6 +22,6 @@ node('docker-j1.7mvn3') {
 
 node {
     stage('Deploy')
-        //input 'All ok to deploy?'
+        input 'All ok to deploy?'
         sh 'echo Deploying..'
 }
